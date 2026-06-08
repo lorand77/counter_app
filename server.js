@@ -1,10 +1,11 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const crypto = require('crypto');
 const mysql = require('mysql2');
 
 const app = express();
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const conn = mysql.createConnection({
     host: process.env.DB_HOST,
