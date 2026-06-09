@@ -145,7 +145,7 @@ socket npm install -g pm2
 
 pm2 start npm --name "counter_app" -- start
 
-# suervive reboot:
+# survive reboot:
 pm2 save
 pm2 startup
 
