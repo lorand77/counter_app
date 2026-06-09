@@ -37,54 +37,65 @@ source ~/.bashrc
 npm install -g npm@latest
 npm install -g @socketsecurity/cli     
 
-### adding a new package:
+# adding a new package:
 socket npm install PACKAGE_NAME
 
-### if needed:
+# if needed:
 socket npm install PACKAGE_NAME --ignore-scripts=false
 ```
 
-## install mysql
+### install mysql
+```
 sudo apt update
 sudo apt install -y mysql-server mysql-client
 sudo service mysql start
 sudo mysql
+```
 
 ### create .env file with mysql credentials (based on .env-template)
 and add password for mysql user (counter_app) in .env file
 
 ### setup mysql user
+```
 CREATE DATABASE counter_app;
 CREATE USER 'counter_app'@'localhost' IDENTIFIED BY '@@@@@@@@ FILL IN PASSWORD @@@@@@@@';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON counter_app.* TO 'counter_app'@'localhost';
 FLUSH PRIVILEGES;
+```
 
-
-## install claude code
+### install claude code
+```
 curl -fsSL https://claude.ai/install.sh | bash
+```
 
-
-## run the app
+### run the app
+```
 npm start
-
+```
 
 --------------------------------------------------------
 
 # PROD environment 1 - ubuntu server
 
-digital ocean droplet
-Ubuntu 24.04 (LTS) x64
-Basic / 1 vCPU / 1 GB RAM / 25 GB Disk
-add ssh key
+### setup server
+- digital ocean droplet
+- Ubuntu 24.04 (LTS) x64
+- Basic / 1 vCPU / 1 GB RAM / 25 GB Disk
+- add ssh key
 
+```
 ssh root@142.93.50.247
 adduser --disabled-password --gecos "" counter_app
 su - counter_app
+```
 
+### project code
+```
 git clone https://github.com/lorand77/counter_app.git
-
+```
 
 ## install node+npm
+```
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
@@ -98,33 +109,37 @@ source ~/.bashrc
 npm install -g npm@latest
 npm install -g @socketsecurity/cli     
 
-### adding a new package:
+# adding a new package:
 socket npm install PACKAGE_NAME
 
-### if needed:
+# if needed:
 socket npm install PACKAGE_NAME --ignore-scripts=false
+```
 
-
-## install mysql
+### install mysql
+```
 sudo apt update
 sudo apt install -y mysql-server mysql-client
 sudo mysql
+```
 
 ### create .env file with mysql credentials (based on .env-template)
 and add password for mysql user (counter_app) in .env file
 
 ### setup mysql user
+```
 CREATE DATABASE counter_app;
 CREATE USER 'counter_app'@'localhost' IDENTIFIED BY '@@@@@@@@ FILL IN PASSWORD @@@@@@@@';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON counter_app.* TO 'counter_app'@'localhost';
 FLUSH PRIVILEGES;
+```
 
-
-## run the app
+### run the app
+```
 npm start
+```
 
-
-## open FW
+## open firewall
 digital ocean: create firewall, allow port 8080, assign to droplet
 
 ## in browser
