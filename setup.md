@@ -139,8 +139,36 @@ FLUSH PRIVILEGES;
 npm start
 ```
 
+or better use pm2:
+```
+socket npm install -g pm2
+
+pm2 start npm --name "counter_app" -- start
+
+# suervive reboot:
+pm2 save
+pm2 startup
+
+
+pm2 list                        # see all running processes and their status
+pm2 logs counter_app            # tail live logs
+pm2 logs counter_app --lines 100  # show last 100 lines
+pm2 restart counter_app         # restart the app (e.g. after deploying new code)
+pm2 stop counter_app            # stop without removing from pm2's list
+pm2 delete counter_app          # remove from pm2 entirely
+pm2 monit                       # live dashboard: CPU, memory, logs
+```
+
 ## open firewall
 digital ocean: create firewall, allow port 8080, assign to droplet
 
 ## in browser
 open http://142.93.50.247:8080
+
+## deploying new code
+```
+git pull
+npm install        # in case dependencies changed
+pm2 restart counter_app
+```
+
