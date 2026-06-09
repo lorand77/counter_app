@@ -7,12 +7,14 @@ const mysql = require('mysql2');
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
-const conn = mysql.createConnection({
+const conn = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     port: process.env.DB_PORT,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
 });
 
 conn.query(`
