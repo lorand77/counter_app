@@ -1,5 +1,6 @@
 # DEV environment
 
+## general setup
 - laptop/desktop
 - OS (Windows)
 - browser (Brave)
@@ -8,18 +9,21 @@
 - WSL2
 - Docker
 
+## setup project
 - folder with code in the OS
 - open folder with VSC ("VSC project")
 - Ctrl-Sh-P add dev container... (ubuntu)
 - create git repo + publish to github
 
+## install stuff
 - install python+pip packages
 - install node+npm packages
 - install claude code
-- install mysql
+- install mysql server
 
 
-## install node+npm
+### install node+npm
+```
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
@@ -38,7 +42,7 @@ socket npm install PACKAGE_NAME
 
 ### if needed:
 socket npm install PACKAGE_NAME --ignore-scripts=false
-
+```
 
 ## install mysql
 sudo apt update
