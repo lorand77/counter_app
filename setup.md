@@ -172,3 +172,12 @@ npm install        # in case dependencies changed
 pm2 restart counter_app
 ```
 
+## backing up mysql database
+```
+mysqldump --single-transaction counter_app > backup-counter_app-$(date +%Y-%m-%d).sql
+
+#restore:
+mysql counter_app < backup-counter_app-2026-06-09.sql
+```
+
+and move the backup file somewhere safe (e.g. download to local machine, upload to cloud storage etc.)
