@@ -181,3 +181,21 @@ mysql counter_app < backup-counter_app-2026-06-09.sql
 ```
 
 and move the backup file somewhere safe (e.g. download to local machine, upload to cloud storage etc.)
+
+--------------------------------------------------------
+
+# PROD environment 2 - platform-as-a-service (railway) (node + mysql)
+
+- create railway account
+- create new project, link to github repo
+- add mysql plugin in railway
+- add mysql credentials to project variables in railway
+```
+  DB_HOST=${{MySQL.MYSQLHOST}}
+  DB_PORT=${{MySQL.MYSQLPORT}}
+  DB_USER=${{MySQL.MYSQLUSER}}
+  DB_PASSWORD=${{MySQL.MYSQLPASSWORD}}
+  DB_NAME=${{MySQL.MYSQLDATABASE}}
+```
+- networking: generate domain, e.g. https://counterapp-production-ce42.up.railway.app
+- open app in browser 

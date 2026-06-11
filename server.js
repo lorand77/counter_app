@@ -24,7 +24,7 @@ conn.query(`
     )
 `, (err) => {
     if (err) throw err;
-    app.listen(8080);
+    app.listen(process.env.PORT || 8080);
 });
 
 app.use((req, res, next) => {
