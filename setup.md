@@ -198,4 +198,4 @@ and move the backup file somewhere safe (e.g. download to local machine, upload 
   DB_NAME=${{MySQL.MYSQLDATABASE}}
 ```
 - networking: generate domain, e.g. https://counterapp-production-ce42.up.railway.app
-- open app in browser 
+- open app in browser
