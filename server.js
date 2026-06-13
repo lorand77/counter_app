@@ -12,9 +12,7 @@ const conn = mysql.createPool({
     user: process.env.DB_USER,
     port: process.env.DB_PORT,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    waitForConnections: true,
-    connectionLimit: 10,
+    database: process.env.DB_NAME
 });
 
 conn.query(`
